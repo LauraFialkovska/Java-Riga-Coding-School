@@ -1,0 +1,82 @@
+Choose your warrior: k (knight); b (barbarian); w (wizard)
+k
+
+.:: Let the battle begins ::.
+
+Choose your action: a (attack); b (block)
+a
+
+You hit 3 points.
+PC left 11 health points.
+
+PC hit 6 points.
+User left 8 health points.
+
+Choose your action: a (attack); b (block)
+a
+
+You hit 5 points.
+PC regenerated (+2) and left 8 health points.
+
+PC hit 2 points.
+User left 6 health points.
+
+Choose your action: a (attack); b (block)
+a
+
+You hit 4 points.
+PC regenerated (+2) and left 6 health points.
+
+PC hit 3 points.
+User left 3 health points.
+
+Choose your action: a (attack); b (block)
+b
+
+You block PC's attack and regenerated 1 HP.
+User left 4 health points.
+
+Choose your action: a (attack); b (block)
+b
+
+You used block, but PC was stronger and damaged your HP by 2.
+User left 2 health points.
+
+Choose your action: a (attack); b (block)
+b
+
+You block PC's attack and regenerated 1 HP.
+User left 3 health points.
+
+Choose your action: a (attack); b (block)
+b
+
+You block PC's attack and regenerated 1 HP.
+User left 4 health points.
+
+Choose your action: a (attack); b (block)
+a
+
+You hit 7 points.
+PC regenerated (+2) and left 1 health points.
+
+PC hit 6 points.
+User left -2 health points.
+
+You have received a special attack from a dying PC (+-3)!
+User left -5 health points.
+
+You almost lost!
+But thanks to your courage you get a second life (+6)!
+User left 1 health points.
+
+Choose your action: a (attack); b (block)
+a
+
+You hit 5 points.
+PC regenerated (+2) and left -2 health points.
+
+PC hit 5 points.
+User left -4 health points.
+
+Draw!
