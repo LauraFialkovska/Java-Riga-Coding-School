@@ -15,18 +15,14 @@ public class Prompter {
         int fakeNumber1 = number + 3;
         int fakeNumber2 = number - 1;
 
-        System.out.println("\n" + "Numbers to guess:");
+        System.out.print("\n" + "Numbers to guess: ");
         if (number > 2) {
-            System.out.println("Number #1: " + fakeNumber1);
-            System.out.println("Number #2: " + fakeNumber2);
-            System.out.println("Number #3: " + number);
+            System.out.println(fakeNumber1 + "; " + fakeNumber2 + "; " + number);
         } else {
-            System.out.println("Number #1: " + fakeNumber1);
-            System.out.println("Number #2: " + number);
-            System.out.println("Number #3: " + fakeNumber2);
+            System.out.println(fakeNumber2 + "; " + number + "; " + fakeNumber1);
         }
 
-        System.out.print("\n" + "Guess number: ");
+        System.out.print("Guess number: ");
         return scan.nextInt();
     }
 
