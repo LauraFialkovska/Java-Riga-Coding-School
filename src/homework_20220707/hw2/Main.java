@@ -7,16 +7,16 @@ public class Main {
         Prompter prompter = new Prompter();
         Random rand = new Random();
 
-		// Speletaja dati
+		// Player data
         int userHp = 14;
         int attackCounter = 0;
         int bonusAmount = 0;
         boolean payBonus = false;
 
-		// PC dati
+		// PC data
         int pcHp = 14;
         int pcAtt = 2;
-        // int pcReg = 2;
+        int pcReg = 2;
 
         String warrior = prompter.askForWarrior();
         System.out.println("\n" + ".:: Let the battle begins ::.");
@@ -64,7 +64,13 @@ public class Main {
 
                     pcHp = pcHp - userAtt;
                     System.out.println("\n" + "You hit " + userAtt + " points." );
-                    System.out.println("PC left " + pcHp + " health points.");
+
+                    if (userAtt > 3) {
+                        pcHp += pcReg;
+                        System.out.println("PC regenerated (+" + pcReg + ") and left " + pcHp + " health points.");
+                    } else {
+                        System.out.println("PC left " + pcHp + " health points.");
+                    }
 
                     userHp = userHp - pcAttRatio;
                     System.out.println("\n" + "PC hit " + pcAttRatio + " points." );
@@ -74,14 +80,17 @@ public class Main {
 				// Block description
                 case "b":
                     attackCounter = 0;
-                    userHp = userHp + userReg;
 
                     if (pcAttRatio > userBlock) {
-                        userHp = userHp - (pcAttRatio - userBlock);
+                        int damagedBy = pcAttRatio - userBlock;
+                        userHp = userHp - damagedBy;
+
                         System.out.println("\n" + "You used block, but PC was stronger and damaged your HP by " +
-                                (pcAttRatio - userBlock) + ".");
+                                damagedBy + ".");
                         System.out.println("User left " + userHp + " health points.");
                     } else {
+                        userHp = userHp + userReg;
+
                         System.out.println("\n" + "You block PC's attack and regenerated " + userReg + " HP.");
                         System.out.println("User left " + userHp + " health points.");
                     }
@@ -89,24 +98,43 @@ public class Main {
                     break;
             }
 
-            if (pcHp <= 0) {
-                System.out.println("\n" + "You won!");
-                break;
-            }
-
             if (attackCounter >= 3) {
                 payBonus = true;
+                attackCounter = 0;
+            }
+
+            // If PC die, but the user has a chance to live
+            if (pcHp <= 3 && payBonus) {
+                int specialAtt = rand.nextInt(4);
+
+                if (userHp >= 0) {
+                    userHp -= specialAtt;
+                } else {
+                    userHp = userHp - specialAtt;
+                }
+
+                System.out.println("\n" + "You have received a special attack from a dying PC (+-" + specialAtt + ")!");
+                System.out.println("User left " + userHp + " health points.");
             }
 
             // If the user is close to death and has once shown courage
-			if (userHp <= 0 && payBonus) {
+            if (userHp <= 0 && payBonus) {
                 userHp += bonusAmount;
+                payBonus = false;
 
-				System.out.println("\n" + "You almost lost!");
-                System.out.println("But thanks to your courage you get a second life!");
+                System.out.println("\n" + "You almost lost!");
+                System.out.println("But thanks to your courage you get a second life (+" + bonusAmount + ")!");
                 System.out.println("User left " + userHp + " health points.");
-			} else if (userHp <= 0 && !payBonus) {
+            }
+
+            if (pcHp <= 0 && userHp > 0) {
+                System.out.println("\n" + "You won!");
+                break;
+            } else if (pcHp > 0 && userHp <= 0) {
                 System.out.println("\n" + "You lost!");
+                break;
+            } else if (pcHp <= 0 && userHp <= 0) {
+                System.out.println("\n" + "Draw!");
                 break;
             }
         }

@@ -1,0 +1,39 @@
+Choose your warrior: k (knight); b (barbarian); w (wizard)
+b
+
+.:: Let the battle begins ::.
+
+Choose your action: a (attack); b (block)
+a
+
+You hit 6 points.
+PC regenerated (+2) and left 10 health points.
+
+PC hit 4 points.
+User left 10 health points.
+
+Choose your action: a (attack); b (block)
+b
+
+You used block, but PC was stronger and damaged your HP by 3.
+User left 7 health points.
+
+Choose your action: a (attack); b (block)
+a
+
+You hit 5 points.
+PC regenerated (+2) and left 7 health points.
+
+PC hit 2 points.
+User left 5 health points.
+
+Choose your action: a (attack); b (block)
+a
+
+You hit 6 points.
+PC regenerated (+2) and left 3 health points.
+
+PC hit 6 points.
+User left -1 health points.
+
+You lost!
