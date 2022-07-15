@@ -1,0 +1,105 @@
+Čato ar mums
+Lūdzam nerakstīt šajā sarakstē personas datus, piemēram, vārdu, dzimšanas datumu vai informāciju par veselību.
+
+.:: Virtuālais asistents ::.
+
+Sveiki!
+
+Tu saraksties ar mūsu Swedbank Virtuālo asistentu.
+Uzdod jautājumus par mūsu pakalpojumu "Aizdevums"!
+
+Kā varam Tev palīdzēt?
+
+Es: Daleji atmaksat savu kreditu
+
+.:: Virtuālais asistents ::.
+
+Precizē, vai vēlies:
+-> Saņemt aizdevumu
+-> Apskatīt vai mainīt esošo līgumu
+-> Veikt ikmēneša maksājumu
+-> Veikt papildu vai pilnu atmaksu
+
+Es: Veikt papildu vai pilnu atmaksu
+
+.:: Virtuālais asistents ::.
+
+Pretī aizdevuma līgumam izvēlies:
+* “Dzēst kredītu”, lai atmaksātu pilnu summu
+* “Veikt izmaiņas”, lai atmaksātu daļu summas
+Jauno atmaksas grafiku redzēsi pirms izmaiņu apstiprināšanas.
+
+Es: Labi!
+
+Es: Apskatit vai mainit esoso ligumu
+
+.:: Virtuālais asistents ::.
+
+Lai Tev palīdzētu, norādi, kāds ir Tava aizdevuma veids:
+-> Patēriņa kredīts
+-> Auto kredīts
+-> Mazais mājokļa kredīts
+-> Hipotekārais kredīts
+-> Auto līzings
+-> Studiju kredīts
+-> Kredītlīnija
+-> Kredītkarte
+
+Es: Mazais majokla kredits
+
+.:: Virtuālais asistents ::.
+
+Ja Tev ir aktīvs aizdevuma līgums, izvēlies:
+* “Skatīt”, lai apskatītu tā nosacījumus, atlikumu un atmaksas grafiku
+* “Izmaiņas un daļēja atmaksa”, lai mainītu maksājuma datumu un atmaksas kontu
+
+-> Neredzu iespēju mainīt līgumu
+-> Skatīt vai mainīt līgumu
+
+Es: Skatit vai mainit ligumu
+
+.:: Virtuālais asistents ::.
+
+Tev atvēras web-lapa "Manas saistības".
+
+Es: Neredzu iespeju mainit ligumu
+
+.:: Virtuālais asistents ::.
+
+Izmaiņas nevar veikt:
+* No plkst. 22:00 līdz 07:00
+* Aizdevuma maksājuma datumā
+* Ja ir atlikts aizdevuma maksājums
+* Ja ir aktīvs parāds
+* Ja kādā no kontiem ir negatīvs atlikums
+
+Es: Skaidrs.
+
+Es: Veikt ikmenesa maksajumu
+
+.:: Virtuālais asistents ::.
+
+Parasti ikmēneša maksājums notiek automātiski izvēlētajā maksājuma datumā dienas beigās.
+-> Veikt papildu aizdevuma atmaksu
+-> Apskatīt aizdevuma atmaksas grafiku
+
+Es: Veikt papildu aizdevuma atmaksu
+
+.:: Virtuālais asistents ::.
+
+Pretī aizdevuma līgumam izvēlies:
+* “Dzēst kredītu”, lai atmaksātu pilnu summu
+* “Veikt izmaiņas”, lai atmaksātu daļu summas
+Jauno atmaksas grafiku redzēsi pirms izmaiņu apstiprināšanas.
+
+Es: Paldies, sanaca!
+
+.:: Virtuālais asistents ::.
+
+Prieks palīdzēt!
+
+Es: Ata.
+
+.:: Virtuālais asistents ::.
+
+Lai Tev izdevusies diena!
