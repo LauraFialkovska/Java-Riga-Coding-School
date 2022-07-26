@@ -1,6 +1,5 @@
 package lesson_20220716;
 
-import javax.xml.namespace.QName;
 import java.sql.*;
 
 public class DBlogic {
