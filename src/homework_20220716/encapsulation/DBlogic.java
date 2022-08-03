@@ -2,7 +2,7 @@ package homework_20220716.encapsulation;
 
 import java.sql.*;
 
-public class DBlogic {
+class DBlogic {
     private String DB;
     private String USER;
     private String PASSWORD;
