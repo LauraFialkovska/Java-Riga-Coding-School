@@ -21,11 +21,6 @@ public class Files {
         String filename = "src/lesson_20220802/testMe1.txt";
 
         try {
-            /*
-            java.io.File file = new java.io.File(filename);
-            file.createNewFile();
-            */
-
             FileWriter writer = new FileWriter(filename);
             writer.write(String.valueOf(uId));
             writer.close();
