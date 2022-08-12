@@ -16,7 +16,8 @@ public class RegExp {
 
         System.out.println(matcher.find());
 
+        String patternForAt = ".*@.*";
         String email = "testMe@gmail.com";
-        System.out.println(Pattern.matches(".*[@].*", email));
+        System.out.println(Pattern.matches(patternForAt, email));
     }
 }
