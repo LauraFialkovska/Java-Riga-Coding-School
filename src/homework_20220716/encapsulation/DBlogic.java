@@ -1,5 +1,6 @@
 package homework_20220716.encapsulation;
 
+// Add "mysql-connector-java-8.0.29.jar" to "lib" folder
 import java.sql.*;
 
 class DBlogic {
