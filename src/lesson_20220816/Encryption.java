@@ -1,6 +1,6 @@
 package lesson_20220816;
 
-public class Hashing {
+public class Encryption {
     public static void main(String[] args) {
 
         String password = "madars";
