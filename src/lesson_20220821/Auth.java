@@ -73,12 +73,13 @@ public class Auth implements ActionListener {
         String userVal = userInput.getText();
         String passVal = userPass.getText();
 
-        Connection conn = null;
+        Connection conn;
         try {
             conn = MySqlConnection.getConnection();
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
+
         DBlogic db = new DBlogic();
 
         if (e.getSource() == register) {
@@ -119,10 +120,8 @@ public class Auth implements ActionListener {
                 if (ch) {
                     frame.remove(panel);
                     frame.add(dashboard);
-
-                    // Include changes
-                    frame.repaint();
-                    frame.setTitle("Welcome " + userVal);
+                    frame.repaint(); // Include changes
+                    frame.setTitle("Welcome " + userVal + "!");
                 }
             }
         }
