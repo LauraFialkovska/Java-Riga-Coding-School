@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 
 public class MD5 {
-    public String md5(String value) throws Exception {
+    public String hashWithMD5(String value) throws Exception {
         MessageDigest algorithm = MessageDigest.getInstance("MD5");
 
         algorithm.update(value.getBytes(), 0, value.length());
@@ -16,7 +16,7 @@ public class MD5 {
         String md5 = null;
 
         try {
-            md5 = md5(value);
+            md5 = hashWithMD5(value);
         } catch (Exception exc) {
             exc.printStackTrace();
         }
