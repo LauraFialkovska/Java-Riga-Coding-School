@@ -24,7 +24,8 @@ public class DBlogic {
         }
     }
 
-    public String select(Connection conn, String name) {
+    public boolean ifUserExists(Connection conn, String name) {
+        boolean ifUserExists = false;
         String sql = "SELECT name FROM users4login WHERE name = ?";
 
         try {
@@ -35,7 +36,7 @@ public class DBlogic {
             ResultSet resultSet = pstmt.executeQuery();
 
             if(resultSet.next()) {
-                System.out.println("User already exists :(");
+                ifUserExists = true;
             }
 
             resultSet.close();
@@ -44,10 +45,10 @@ public class DBlogic {
             excptn.printStackTrace();
         }
 
-        return name;
+        return ifUserExists;
     }
 
-    public boolean login(Connection conn, String name, String password) {
+    public boolean isLoggedIn(Connection conn, String name, String password) {
         boolean isLoggedIn = false;
         String sql = "SELECT name, password FROM users4login WHERE name = ? AND password = ?";
 
@@ -61,8 +62,6 @@ public class DBlogic {
 
             if(resultSet.next()) {
                 isLoggedIn = true;
-            } else {
-                System.out.println("User not found");
             }
 
             resultSet.close();

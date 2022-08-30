@@ -3,8 +3,6 @@ package lesson_20220821;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -61,14 +59,6 @@ public class Auth implements ActionListener {
         frame.setVisible(true);
     }
 
-    public String md5(String value) throws Exception {
-        MessageDigest algorithm = MessageDigest.getInstance("MD5");
-
-        algorithm.update(value.getBytes(), 0, value.length());
-
-        return new BigInteger(1, algorithm.digest()).toString(16);
-    }
-
     public void actionPerformed(ActionEvent e) {
         String userVal = userInput.getText();
         String passVal = userPass.getText();
@@ -81,25 +71,20 @@ public class Auth implements ActionListener {
         }
 
         DBlogic db = new DBlogic();
+        MD5 md5Hash = new MD5();
 
         if (e.getSource() == register) {
             if(userVal.length() == 0 || passVal.length() == 0) {
                 System.out.println("Empty field");
             } else {
-                boolean check = Boolean.parseBoolean(db.select(conn, userVal));
+                boolean ifUserExists = db.ifUserExists(conn, userVal);
 
-                if (check) {
+                if (ifUserExists) {
                     System.out.println("User already exists");
                 } else {
-                    String md5 = null;
-
-                    try {
-                        md5 = md5(passVal);
-                    } catch (Exception exc) {
-                        exc.printStackTrace();
-                    }
-
+                    String md5 = md5Hash.getMD5(passVal);
                     System.out.println("MD5 password: " + md5);
+
                     db.register(conn, userVal, md5);
                 }
             }
@@ -107,21 +92,17 @@ public class Auth implements ActionListener {
             if(userVal.length() == 0 || passVal.length() == 0) {
                 System.out.println("Empty field");
             } else {
-                String md5 = null;
+                String md5 = md5Hash.getMD5(passVal);
 
-                try {
-                    md5 = md5(passVal);
-                } catch (Exception exc) {
-                    exc.printStackTrace();
-                }
+                boolean isLoggedIn = db.isLoggedIn(conn, userVal, md5);
 
-                boolean ch = db.login(conn, userVal, md5);
-
-                if (ch) {
+                if (isLoggedIn) {
                     frame.remove(panel);
                     frame.add(dashboard);
                     frame.repaint(); // Include changes
                     frame.setTitle("Welcome " + userVal + "!");
+                } else {
+                    System.out.println("User not found");
                 }
             }
         }
