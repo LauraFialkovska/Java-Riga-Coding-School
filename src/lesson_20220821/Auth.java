@@ -93,21 +93,25 @@ public class Auth implements ActionListener {
                 System.out.println("Empty field");
             } else {
                 String md5 = md5Hash.getMD5(passVal);
-
-                boolean isLoggedIn = db.isLoggedIn(conn, userVal, md5);
-
-                if (isLoggedIn) {
-                    frame.remove(panel);
-                    frame.add(dashboard);
-                    frame.repaint(); // Include changes
-                    frame.setTitle("Welcome " + userVal + "!");
-                } else {
-                    System.out.println("User not found");
-                }
+                login(conn, userVal, md5);
             }
         }
         else {
             System.out.println("Error");
+        }
+    }
+
+    public void login(Connection conn, String name, String password) {
+        DBlogic db = new DBlogic();
+        boolean isLoggedIn = db.isLoggedIn(conn, name, password);
+
+        if (isLoggedIn) {
+            frame.remove(panel);
+            frame.add(dashboard);
+            frame.repaint(); // Include changes
+            frame.setTitle("Welcome " + name + "!");
+        } else {
+            System.out.println("Login failed: user not found");
         }
     }
 }
