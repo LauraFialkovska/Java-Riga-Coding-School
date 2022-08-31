@@ -63,47 +63,53 @@ public class Auth implements ActionListener {
         String userVal = userInput.getText();
         String passVal = userPass.getText();
 
-        Connection conn;
-        try {
-            conn = MySqlConnection.getConnection();
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
-
-        DBlogic db = new DBlogic();
-        MD5 md5Hash = new MD5();
-
         if (e.getSource() == register) {
-            if(userVal.length() == 0 || passVal.length() == 0) {
-                System.out.println("Empty field");
+            if (userVal.length() == 0 || passVal.length() == 0) {
+                System.out.println("Register failed: empty field");
             } else {
-                boolean ifUserExists = db.ifUserExists(conn, userVal);
-
-                if (ifUserExists) {
-                    System.out.println("User already exists");
-                } else {
-                    String md5 = md5Hash.getMD5(passVal);
-                    System.out.println("MD5 password: " + md5);
-
-                    db.register(conn, userVal, md5);
+                try {
+                    register(userVal, passVal);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         } else if (e.getSource() == login) {
-            if(userVal.length() == 0 || passVal.length() == 0) {
-                System.out.println("Empty field");
+            if (userVal.length() == 0 || passVal.length() == 0) {
+                System.out.println("Login failed: empty field");
             } else {
-                String md5 = md5Hash.getMD5(passVal);
-                login(conn, userVal, md5);
+                try {
+                    login(userVal, passVal);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
-        }
-        else {
+        } else {
             System.out.println("Error");
         }
     }
 
-    public void login(Connection conn, String name, String password) {
+    public void register(String name, String password) throws SQLException {
+        MD5 md5Hash = new MD5();
         DBlogic db = new DBlogic();
-        boolean isLoggedIn = db.isLoggedIn(conn, name, password);
+        Connection conn = MySqlConnection.getConnection();
+
+        boolean ifUserExists = db.ifUserExists(conn, name);
+
+        if (ifUserExists) {
+            System.out.println("Register failed: user already exists");
+        } else {
+            String md5 = md5Hash.getMD5(password);
+            db.register(conn, name, md5);
+        }
+    }
+
+    public void login(String name, String password) throws SQLException {
+        MD5 md5Hash = new MD5();
+        DBlogic db = new DBlogic();
+        Connection conn = MySqlConnection.getConnection();
+
+        String md5 = md5Hash.getMD5(password);
+        boolean isLoggedIn = db.isLoggedIn(conn, name, md5);
 
         if (isLoggedIn) {
             frame.remove(panel);

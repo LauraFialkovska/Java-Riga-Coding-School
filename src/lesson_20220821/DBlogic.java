@@ -19,6 +19,7 @@ public class DBlogic {
             conn.close();
 
             System.out.println("Insert: done!");
+            System.out.println("MD5 password: " + password);
         } catch (SQLException excptn) {
             excptn.printStackTrace();
         }
